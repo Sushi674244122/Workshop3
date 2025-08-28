@@ -9,7 +9,7 @@ int main() {
     si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));
 
-    // เปลี่ยน commandLine เป็น "calc.exe" สำหรับเปิดเครื่องคิดเลข
+    
     char commandLine[] = "calc.exe";
     printf("Parent PID: %lu\n", GetCurrentProcessId());
 
@@ -31,12 +31,12 @@ int main() {
 
     printf("Child PID: %lu\n", pi.dwProcessId);
 
-    // รอจนกว่าเครื่องคิดเลขจะปิด
     WaitForSingleObject(pi.hProcess, INFINITE);
 
-    // ปิด handle ของ process และ thread
+   
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
 
     return 0;
 }
+
