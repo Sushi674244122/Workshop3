@@ -9,7 +9,7 @@ int main() {
     si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));
 
-    // เปลี่ยน commandLine เป็น URL ของ YouTube
+ 
    char commandLine[] = "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" https://www.youtube.com";
 
     printf("Parent PID: %lu\n", GetCurrentProcessId());
@@ -32,13 +32,14 @@ int main() {
 
     printf("Child PID: %lu\n", pi.dwProcessId);
 
-    // รอจนกว่าโปรแกรมจะปิด
+
     WaitForSingleObject(pi.hProcess, INFINITE);
 
-    // ปิด handle ของ process และ thread
+  
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
 
     return 0;
 }
+
     
